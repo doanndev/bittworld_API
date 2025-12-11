@@ -20,10 +20,11 @@ import { WsJwtAuthGuard } from './guards/ws-jwt-auth.guard';
         JwtModule.registerAsync({
             imports: [ConfigModule],
             inject: [ConfigService],
-            useFactory: async (configService: ConfigService) => ({
+            // @ts-ignore - Type mismatch với JWT module options
+            useFactory: (configService: ConfigService) => ({
                 secret: configService.get<string>('JWT_SECRET'),
                 signOptions: {
-                    expiresIn: configService.get<string>('JWT_EXPIRATION', '86400'),
+                    expiresIn: configService.get<string>('JWT_EXPIRATION', '1d'),
                 },
             }),
         }),

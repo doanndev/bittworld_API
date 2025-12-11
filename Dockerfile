@@ -1,6 +1,9 @@
 # Stage 1: Build
 FROM node:22-alpine AS builder
 
+# Cài đặt Python và build tools cần thiết cho native modules
+RUN apk add --no-cache python3 make g++
+
 # Đặt thư mục làm việc
 WORKDIR /app
 
@@ -25,6 +28,9 @@ RUN npm run build
 # Stage 2: Production
 FROM node:22-alpine AS runner
 
+# Cài đặt Python và build tools cho production dependencies (nếu cần)
+RUN apk add --no-cache python3 make g++
+
 # Tạo non-root user để chạy ứng dụng (bảo mật tốt hơn)
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nestjs -u 1001
@@ -38,6 +44,9 @@ COPY --from=builder --chown=nestjs:nodejs /app/package*.json ./
 # Cài đặt chỉ production dependencies
 RUN npm install --omit=dev --legacy-peer-deps && \
     npm cache clean --force
+
+# Xóa build tools sau khi cài dependencies để giảm image size
+RUN apk del python3 make g++
 
 # Copy built application
 COPY --from=builder --chown=nestjs:nodejs /app/dist ./dist
