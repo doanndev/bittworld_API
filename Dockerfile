@@ -25,6 +25,9 @@ RUN if [ -d "vendor/spl-token-0.4.13" ]; then \
 # Build NestJS application
 RUN npm run build
 
+# Verify build output location
+RUN ls -la dist/ && echo "---" && find dist -name "main.js" -o -name "main" | head -5
+
 # Stage 2: Production
 FROM node:22-alpine AS runner
 
@@ -68,4 +71,6 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
   CMD node -e "require('http').get('http://localhost:${PORT:-8000}/api/v1/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})" || exit 1
 
 # Chạy ứng dụng (sử dụng PORT từ environment variable)
-CMD ["node", "dist/main.js"]
+# NestJS với sourceRoot="src" sẽ build vào dist/src/main.js
+# Fallback nếu đường dẫn khác
+CMD sh -c 'if [ -f "dist/src/main.js" ]; then node dist/src/main.js; elif [ -f "dist/main.js" ]; then node dist/main.js; else node dist/main; fi'
