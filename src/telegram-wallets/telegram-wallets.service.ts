@@ -1557,7 +1557,7 @@ export class TelegramWalletsService {
             // Default tokens to always include (devnet addresses)
             const defaultTokens = [
                 'So11111111111111111111111111111111111111112', // SOL
-                'Gr5D54dHC8neoFBQQuy8ni6S19E5ygg7Ewr3i1x6RRP5', // USDT Devnet
+                'Es9vMFrzaCERh2M6VjRz2kV1Jp1oH6p1xZ8n3Ew1V9Y', // USDT Devnet
                 '9wcpBxUDTi2K7cXoHsmP7K4S7ZSZpjedQrR3gh1evVNQ' // BITT Devnet
             ];
 
@@ -1580,7 +1580,7 @@ export class TelegramWalletsService {
             }
 
             // Get USDT balance if not in token accounts
-            const USDT_MINT_DEVNET = 'Gr5D54dHC8neoFBQQuy8ni6S19E5ygg7Ewr3i1x6RRP5';
+            const USDT_MINT_DEVNET = 'Es9vMFrzaCERh2M6VjRz2kV1Jp1oH6p1xZ8n3Ew1V9Y';
             let usdtBalance = 0;
             if (missingDefaultTokens.includes(USDT_MINT_DEVNET)) {
                 try {
@@ -2704,7 +2704,7 @@ export class TelegramWalletsService {
 
             const walletAddress = wallet.wallet_solana_address;
             // Devnet token addresses
-            const USDT_MINT = 'Gr5D54dHC8neoFBQQuy8ni6S19E5ygg7Ewr3i1x6RRP5'; // Devnet USDT
+            const USDT_MINT = 'Es9vMFrzaCERh2M6VjRz2kV1Jp1oH6p1xZ8n3Ew1V9Y'; // Devnet USDT
             const SOL_MINT = 'So11111111111111111111111111111111111111112';
             const BITT_MINT = '9wcpBxUDTi2K7cXoHsmP7K4S7ZSZpjedQrR3gh1evVNQ'; // Devnet BITT
 

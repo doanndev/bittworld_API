@@ -32,11 +32,22 @@ async function bootstrap() {
 
   app.useStaticAssets(join(process.cwd(), 'public'));
 
+  // CORS configuration - allow all origins including localhost
   const corsConfig = {
-    origin: '*',
+    origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+      // Allow requests with no origin (like mobile apps, Postman, curl, etc.)
+      if (!origin) {
+        return callback(null, true);
+      }
+      // Allow all origins
+      callback(null, true);
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-No-Redirect', 'token'],
-    credentials: true
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-No-Redirect', 'token', 'Accept', 'Origin', 'X-Requested-With'],
+    exposedHeaders: ['Content-Type', 'Authorization'],
+    credentials: false,
+    preflightContinue: false,
+    optionsSuccessStatus: 204
   };
 
   app.enableCors(corsConfig);

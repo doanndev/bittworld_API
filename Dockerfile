@@ -15,7 +15,7 @@ COPY yarn.lock* ./
 RUN npm install --legacy-peer-deps || yarn install --frozen-lockfile
 
 # Copy source code
-COPY . .
+COPY . .  
 
 # Cài đặt dependencies cho spl-token trong vendor nếu có
 RUN if [ -d "vendor/spl-token-0.4.13" ]; then \

@@ -83,7 +83,7 @@ export class SolanaService {
     private readonly SOL_MINT = 'So11111111111111111111111111111111111111112';
     private readonly USDC_MINT = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v';
     // Devnet token addresses
-    private readonly USDT_MINT_DEVNET = 'Gr5D54dHC8neoFBQQuy8ni6S19E5ygg7Ewr3i1x6RRP5';
+    private readonly USDT_MINT_DEVNET = 'Es9vMFrzaCERh2M6VjRz2kV1Jp1oH6p1xZ8n3Ew1V9Y';
     private readonly BITT_MINT_DEVNET = '9wcpBxUDTi2K7cXoHsmP7K4S7ZSZpjedQrR3gh1evVNQ';
     private readonly DEFAULT_PLATFORM_WALLET = '3wLs323SvtV9iD5HWTtJHGFdmRVGv4xDq3LXKRBdciE2';
     private readonly PLATFORM_WALLET: string;

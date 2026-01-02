@@ -47,7 +47,7 @@ export class WalletBalanceGateway implements OnGatewayConnection, OnGatewayDisco
     const wsUrl = wssUrl.replace('wss://', 'https://');
     this.wsConnection = new Connection(wsUrl, this.commitment);
     
-    this.usdtMint = new PublicKey('Gr5D54dHC8neoFBQQuy8ni6S19E5ygg7Ewr3i1x6RRP5'); // Devnet USDT
+    this.usdtMint = new PublicKey('Es9vMFrzaCERh2M6VjRz2kV1Jp1oH6p1xZ8n3Ew1V9Y'); // Devnet USDT
 
     // Khởi tạo lastProcessedSlot
     this.initializeLastProcessedSlot();

@@ -27,7 +27,7 @@ export class SwapService {
 
   // Token addresses (devnet)
   private readonly SOL_MINT = 'So11111111111111111111111111111111111111112';
-  private readonly USDT_MINT = 'Gr5D54dHC8neoFBQQuy8ni6S19E5ygg7Ewr3i1x6RRP5'; // Devnet USDT
+  private readonly USDT_MINT = 'Es9vMFrzaCERh2M6VjRz2kV1Jp1oH6p1xZ8n3Ew1V9Y'; // Devnet USDT
 
   // Authority keypair cho swap pool
   private readonly swapAuthorityKeypair: Keypair;

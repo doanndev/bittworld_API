@@ -1091,7 +1091,7 @@ export class SmartRouteSolanaService implements OnModuleInit {
         // Danh sách các token trung gian phổ biến (devnet)
         const INTERMEDIATE_TOKENS = [
             'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // USDC
-            'Gr5D54dHC8neoFBQQuy8ni6S19E5ygg7Ewr3i1x6RRP5', // USDT Devnet
+            'Es9vMFrzaCERh2M6VjRz2kV1Jp1oH6p1xZ8n3Ew1V9Y', // USDT Devnet
             '9wcpBxUDTi2K7cXoHsmP7K4S7ZSZpjedQrR3gh1evVNQ', // BITT Devnet
             'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263', // BONK
             'So11111111111111111111111111111111111111112',  // SOL (Wrapped)
